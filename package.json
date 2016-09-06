@@ -1,0 +1,12 @@
+{
+  "name": "natex",
+  "version": "1.0.0",
+  "description": "Adds useful functions to native prototypes (Array, Map, String...)",
+  "author": "kukeiko",
+  "license": "ISC",
+  "main": "dist/index",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "test": "test"
+  }
+}

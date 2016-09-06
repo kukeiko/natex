@@ -1,0 +1,1 @@
+Pollutes native prototypes, but every function is prefixed with an underscore to prevent collision with upcoming std functions.

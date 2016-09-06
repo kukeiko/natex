@@ -1,9 +1,13 @@
 {
   "name": "natex",
-  "version": "1.0.0",
-  "description": "Adds useful functions to native prototypes (Array, Map, String...)",
+  "version": "1.0.4",
+  "description": "Extends native prototypes (Array, Map, String) with utility functions.",
   "author": "kukeiko",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kukeiko/natex"
+  },
+  "license": "MIT",
   "main": "dist/index",
   "typings": "dist/index.d.ts",
   "scripts": {

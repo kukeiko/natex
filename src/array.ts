@@ -15,7 +15,7 @@ declare global {
          */
         _minus(...others: T[][]): Array<T>;
         /**
-         * Returns a new array with only the first occurence of each unique value being kept.
+         * Returns a new array with unique values, where only the first occurence is kept.
          */
         _unique(): Array<T>;
     }

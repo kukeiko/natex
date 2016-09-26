@@ -1,6 +1,6 @@
 {
   "name": "natex",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "Extends native prototypes (Array, Map, String) with utility functions.",
   "author": "kukeiko",
   "repository": {

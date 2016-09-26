@@ -11,12 +11,13 @@ describe("array", () => {
     });
 
     it("_intersect()", () => {
-        let a = [0, 1, 2];
-        let b = [2, 1, 3]
+        let a = [0, 64, 1, 2];
+        let b = [2, 1, 64, 3]
+        let c = [2, 0, 64];
 
-        let r = a._intersect(b);
+        let r = a._intersect(b, c);
 
-        expect(r).toEqual([1, 2]);
+        expect(r).toEqual([64, 2]);
         expect(r).not.toBe(a);
     });
 

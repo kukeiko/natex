@@ -1,4 +1,8 @@
-Pollutes native prototypes, but every function is prefixed with an underscore to prevent collision with upcoming std functions.
+Adds useful functions to native collections by polluting their prototypes.
+Each function is prefixed with an underscore to prevent possible future name collision and follows signature styles similar to native functions such as Array.filter() & Array.map().
+
+Includes TypeScript definitions and sourcemaps.
+
 [lodash](https://github.com/lodash/lodash) functions are used where applicable.
 
 # Array&lt;T&gt;

@@ -11,7 +11,7 @@ declare global {
          */
         _intersect(...others: T[][]): Array<T>;
         /**
-         * Returns a new array with items found in the other maps are removed.
+         * Returns a new array with items found in the other maps removed.
          */
         _minus(...others: T[][]): Array<T>;
         /**

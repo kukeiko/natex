@@ -17,7 +17,7 @@ Returns a new array containing values found in all arrays.
 [lodash.intersection()](https://lodash.com/docs/4.16.2#intersection)
 
 ## _minus(...others: T[][]): Array&lt;T&gt;
-Returns a new array with items found in the other maps are removed.
+Returns a new array with items found in the other maps removed.
 
 [lodash.difference()](https://lodash.com/docs/4.16.2#difference)
 
@@ -44,6 +44,10 @@ Only the keys are checked for equality, and only the first occurance of a common
 ## _map&lt;M&gt;(handler: (value: V, index: K, map: Map&lt;K, V&gt;) =&gt; M): Map&lt;K, M&gt;
 
 Returns a new map where each value is mapped against the handler.
+
+## _minus(...others: Map&lt;K, V&gt;[]): Map&lt;K, V&gt;
+
+Returns a new map with items found in the other maps removed.
 
 ## _toArray(): V[]
 

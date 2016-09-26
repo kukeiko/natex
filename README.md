@@ -17,7 +17,7 @@ Returns a new array containing values found in all arrays.
 [lodash.intersection()](https://lodash.com/docs/4.16.2#intersection)
 
 ## _minus(...others: T[][]): Array&lt;T&gt;
-Returns a new array with unique values, where only the first occurence is kept.
+Returns a new array with items found in the other maps are removed.
 
 [lodash.difference()](https://lodash.com/docs/4.16.2#difference)
 

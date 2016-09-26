@@ -16,6 +16,7 @@
   "dependencies": {
     "@types/core-js": "0.9.34",
     "@types/lodash": "4.14.36",
+    "core-js": "2.4.1",
     "lodash": "4.16.2"
   },
   "devDependencies": {

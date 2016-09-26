@@ -17,6 +17,10 @@ interface Map<K, V> {
      */
     _map<M>(handler: (value: V, index: K, map: Map<K, V>) => M): Map<K, M>;
     /**
+     * Returns a new map with items found in the other maps are removed.
+     */
+    _minus(...others: Map<K, V>[]): Map<K, V>;
+    /**
      * Returns the values of the map as an array.
      */
     _toArray(): V[];
@@ -61,6 +65,22 @@ if (!Map.prototype._map) {
     Map.prototype._map = function (handler: (value: any, index: any, map: any) => any) {
         let map = new Map<any, any>();
         this.forEach((v, k) => map.set(k, handler(v, k, this)));
+        return map;
+    }
+}
+
+if (!Map.prototype._minus) {
+    Map.prototype._minus = function (...others: Map<any, any>[]) {
+        let map = (this as Map<any, any>)._copy();
+
+        others.forEach(m => {
+            m.forEach((_, i) => {
+                if (map.has(i)) {
+                    map.delete(i);
+                }
+            });
+        });
+
         return map;
     }
 }

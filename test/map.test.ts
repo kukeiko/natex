@@ -83,6 +83,35 @@ describe("map", () => {
         expect(r).not.toBe(a);
     });
 
+    it("_minus", () => {
+        let a = new Map<number, string>();
+        let b = new Map<number, string>();
+        let c = new Map<number, string>();
+
+        a.set(-1, "negative");
+        a.set(0, "khaz");
+        a.set(1, "mo");
+        a.set(2, "dan");
+        a.set(3, "any");
+        a.set(4, "value");
+
+        b.set(0, "this");
+        b.set(1, "can");
+
+        c.set(3, "foo");
+        c.set(1, "baz");
+        c.set(2, "moo");
+
+        let r = a._minus(b, c);
+
+        expect(r).not.toBe(a);
+        expect(r).not.toBe(b);
+        expect(r).not.toBe(c);
+        expect(r.size).toBe(2);
+        expect(r.get(-1)).toEqual("negative");
+        expect(r.get(4)).toEqual("value");
+    });
+
     it("_toArray", () => {
         let a = new Map<number, string>();
         a.set(0, "khaz");

@@ -33,6 +33,35 @@ describe("map", () => {
         expect(r).not.toBe(a);
     });
 
+    it("_intersect", () => {
+        let a = new Map<number, string>();
+        let b = new Map<number, string>();
+        let c = new Map<number, string>();
+
+        a.set(0, "khaz");
+        a.set(1, "mo");
+        a.set(2, "dan");
+
+        b.set(0, "this");
+        b.set(1, "can");
+        b.set(2, "be");
+        b.set(3, "any");
+        b.set(4, "value");
+
+        c.set(3, "foo");
+        c.set(2, "bar");
+        c.set(1, "baz");
+
+        let r = a._intersect(b, c);
+
+        expect(r).not.toBe(a);
+        expect(r).not.toBe(b);
+        expect(r).not.toBe(c);
+        expect(r.size).toBe(2);
+        expect(r.get(1)).toEqual("mo");
+        expect(r.get(2)).toEqual("dan");
+    });
+
     it("_map", () => {
         let a = new Map<number, { id: string }>();
         a.set(0, { id: "khaz" });

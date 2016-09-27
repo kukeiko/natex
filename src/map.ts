@@ -9,13 +9,18 @@ interface Map<K, V> {
     _filter(predicate: (value: V, index: K, map: Map<K, V>) => boolean): Map<K, V>;
     /**
      * Returns a new map containing items found in all maps.
-     * Only the keys are checked for equality, and only the first occurance of a common item is taken.
+     * Only the keys are checked for equality, and only the first occurence of a common item is taken.
      */
     _intersect(...others: Map<K, V>[]): Map<K, V>;
     /**
      * Returns a new map where each value is mapped against the handler.
      */
     _map<M>(handler: (value: V, index: K, map: Map<K, V>) => M): Map<K, M>;
+    /**
+     * Returns a new map containg the values of all maps.
+     * Only the first occurence of an item is kept.
+     */
+    _merge(...others: Map<K, V>[]): Map<K, V>;
     /**
      * Returns a new map with items found in the other maps are removed.
      */
@@ -65,6 +70,23 @@ if (!Map.prototype._map) {
     Map.prototype._map = function (handler: (value: any, index: any, map: any) => any) {
         let map = new Map<any, any>();
         this.forEach((v, k) => map.set(k, handler(v, k, this)));
+        return map;
+    }
+}
+
+if (!Map.prototype._merge) {
+    Map.prototype._merge = function (...others: Map<any, any>[]) {
+        let maps = [this as Map<any, any>, ...others];
+        let map = new Map<any, any>();
+
+        maps.forEach(m => {
+            m.forEach((v, k) => {
+                if (!map.has(k)) {
+                    map.set(k, v);
+                }
+            });
+        });
+
         return map;
     }
 }

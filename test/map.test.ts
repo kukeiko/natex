@@ -83,6 +83,39 @@ describe("map", () => {
         expect(r).not.toBe(a);
     });
 
+    it("_merge", () => {
+        let a = new Map<number, string>();
+        let b = new Map<number, string>();
+        let c = new Map<number, string>();
+
+        a.set(-1, "negative");
+        a.set(0, "khaz");
+        a.set(1, "mo");
+        a.set(2, "dan");
+        a.set(3, "any");
+        a.set(4, "value");
+
+        b.set(0, "this");
+        b.set(1, "can");
+
+        c.set(3, "foo");
+        c.set(1, "baz");
+        c.set(2, "moo");
+
+        let r = a._merge(b, c);
+
+        expect(r).not.toBe(a);
+        expect(r).not.toBe(b);
+        expect(r).not.toBe(c);
+        expect(r.size).toBe(6);
+        expect(r.get(-1)).toEqual("negative");
+        expect(r.get(0)).toEqual("khaz");
+        expect(r.get(1)).toEqual("mo");
+        expect(r.get(2)).toEqual("dan");
+        expect(r.get(3)).toEqual("any");
+        expect(r.get(4)).toEqual("value");
+    });
+
     it("_minus", () => {
         let a = new Map<number, string>();
         let b = new Map<number, string>();

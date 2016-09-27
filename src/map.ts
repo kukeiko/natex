@@ -17,6 +17,11 @@ interface Map<K, V> {
      */
     _map<M>(handler: (value: V, index: K, map: Map<K, V>) => M): Map<K, M>;
     /**
+     * Returns a new map containg the values of all maps.
+     * Only the first occurence of an item is kept.
+     */
+    _merge(...others: Map<K, V>[]): Map<K, V>;
+    /**
      * Returns a new map with items found in the other maps are removed.
      */
     _minus(...others: Map<K, V>[]): Map<K, V>;
@@ -65,6 +70,23 @@ if (!Map.prototype._map) {
     Map.prototype._map = function (handler: (value: any, index: any, map: any) => any) {
         let map = new Map<any, any>();
         this.forEach((v, k) => map.set(k, handler(v, k, this)));
+        return map;
+    }
+}
+
+if (!Map.prototype._merge) {
+    Map.prototype._merge = function (...others: Map<any, any>[]) {
+        let maps = [this as Map<any, any>, ...others];
+        let map = new Map<any, any>();
+
+        maps.forEach(m => {
+            m.forEach((v, k) => {
+                if (!map.has(k)) {
+                    map.set(k, v);
+                }
+            });
+        });
+
         return map;
     }
 }

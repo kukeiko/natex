@@ -45,6 +45,11 @@ Only the keys are checked for equality, and only the first occurence of a common
 
 Returns a new map where each value is mapped against the handler.
 
+## _merge(...others: Map&lt;K, V&gt;[]): Map&lt;K, V&gt;
+
+Returns a new map containg the values of all maps.
+Only the first occurence of an item is kept.
+
 ## _minus(...others: Map&lt;K, V&gt;[]): Map&lt;K, V&gt;
 
 Returns a new map with items found in the other maps removed.

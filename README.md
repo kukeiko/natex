@@ -39,7 +39,7 @@ Returns a new map containing the items filtered by the predicate.
 ## _intersect(...others: Map&lt;K, V&gt;[]): Map&lt;K, V&gt;
 
 Returns a new map containing items found in all maps.
-Only the keys are checked for equality, and only the first occurance of a common item is taken.
+Only the keys are checked for equality, and only the first occurence of a common item is taken.
 
 ## _map&lt;M&gt;(handler: (value: V, index: K, map: Map&lt;K, V&gt;) =&gt; M): Map&lt;K, M&gt;
 

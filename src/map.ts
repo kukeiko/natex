@@ -9,7 +9,7 @@ interface Map<K, V> {
     _filter(predicate: (value: V, index: K, map: Map<K, V>) => boolean): Map<K, V>;
     /**
      * Returns a new map containing items found in all maps.
-     * Only the keys are checked for equality, and only the first occurance of a common item is taken.
+     * Only the keys are checked for equality, and only the first occurence of a common item is taken.
      */
     _intersect(...others: Map<K, V>[]): Map<K, V>;
     /**

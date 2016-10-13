@@ -47,7 +47,7 @@ Returns a new map where each value is mapped against the handler.
 
 ## _merge(...others: Map&lt;K, V&gt;[]): Map&lt;K, V&gt;
 
-Returns a new map containg the values of all maps.
+Returns a new map containing the values of all maps.
 Only the first occurence of an item is kept.
 
 ## _minus(...others: Map&lt;K, V&gt;[]): Map&lt;K, V&gt;

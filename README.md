@@ -28,6 +28,8 @@ Returns a new array with only the first occurence of each unique value being kep
 
 
 # Map&lt;K, V&gt;
+Functions handling more than one map will only consider the key for equality checks, and only first occurrences of a common (= equal key) item will be kept.
+
 ## _copy(): Map&lt;K, V&gt;
 
 Returns a shallow copy of the map.
@@ -39,7 +41,6 @@ Returns a new map containing the items filtered by the predicate.
 ## _intersect(...others: Map&lt;K, V&gt;[]): Map&lt;K, V&gt;
 
 Returns a new map containing items found in all maps.
-Only the keys are checked for equality, and only the first occurence of a common item is taken.
 
 ## _map&lt;M&gt;(handler: (value: V, index: K, map: Map&lt;K, V&gt;) =&gt; M): Map&lt;K, M&gt;
 
@@ -48,7 +49,6 @@ Returns a new map where each value is mapped against the handler.
 ## _merge(...others: Map&lt;K, V&gt;[]): Map&lt;K, V&gt;
 
 Returns a new map containing the values of all maps.
-Only the first occurence of an item is kept.
 
 ## _minus(...others: Map&lt;K, V&gt;[]): Map&lt;K, V&gt;
 

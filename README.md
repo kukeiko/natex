@@ -21,6 +21,12 @@ Returns a new array with items found in the other maps removed.
 
 [lodash.difference()](https://lodash.com/docs/4.16.2#difference)
 
+## _toMap&lt;K&gt;(key: (value: T) =&gt; K): Map&lt;K, T&gt;;
+Transforms this array into a map.
+
+## _toMap&lt;K, V&gt;(key: (value: T) =&gt; K, value: (value: T) =&gt; V): Map&lt;K, V&gt;;        
+Transforms this array into a map.
+
 ## _unique(): Array&lt;T&gt;
 Returns a new array with only the first occurence of each unique value being kept.
 

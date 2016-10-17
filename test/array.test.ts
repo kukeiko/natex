@@ -32,6 +32,30 @@ describe("array", () => {
         expect(r).not.toBe(a);
     });
 
+    it("_toMap()", () => {
+        let a = [{ key: 75, name: "khaz" }, { key: 64, name: "mo" }, { key: 23, name: "dan" }];
+        let e = new Map();
+        e.set(75, { key: 75, name: "khaz" });
+        e.set(64, { key: 64, name: "mo" });
+        e.set(23, { key: 23, name: "dan" });
+
+        let r = a._toMap(x => x.key);
+
+        expect(r).toEqual(e);
+    });
+
+    it("_toMap() (value mapped)", () => {
+        let a = [{ key: 75, name: "khaz" }, { key: 64, name: "mo" }, { key: 23, name: "dan" }];
+        let e = new Map();
+        e.set(75, { key: 75, name: "khaz-75" });
+        e.set(64, { key: 64, name: "mo-64" });
+        e.set(23, { key: 23, name: "dan-23" });
+
+        let r = a._toMap(x => x.key, x => ({ key: x.key, name: `${x.name}-${x.key}` }));
+
+        expect(r).toEqual(e);
+    });
+
     it("_unique()", () => {
         let a = [2, 0, 1, 1, 2, 0];
 

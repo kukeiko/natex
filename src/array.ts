@@ -15,6 +15,14 @@ declare global {
          */
         _minus(...others: T[][]): Array<T>;
         /**
+         * Transforms this array into a map.
+         */
+        _toMap<K>(key: (value: T) => K): Map<K, T>;
+        /**
+         * Transforms this array into a map.
+         */
+        _toMap<K, V>(key: (value: T) => K, value: (value: T) => V): Map<K, V>;
+        /**
          * Returns a new array with unique values, where only the first occurence is kept.
          */
         _unique(): Array<T>;
@@ -36,6 +44,18 @@ if (!Array.prototype._minus) {
 if (!Array.prototype._intersect) {
     Array.prototype._intersect = function (...others: any[][]) {
         return _.intersection(this, ...others);
+    };
+}
+
+if (!Array.prototype._toMap) {
+    Array.prototype._toMap = function (keyGetter: (v: any) => any, valueGetter?: (v: any) => any) {
+        let map = new Map();
+        if (valueGetter == null) {
+            (this as any[]).forEach(v => map.set(keyGetter(v), v));
+        } else {
+            (this as any[]).forEach(v => map.set(keyGetter(v), valueGetter(v)));
+        }
+        return map;
     };
 }
 
